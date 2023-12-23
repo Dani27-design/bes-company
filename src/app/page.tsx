@@ -1,113 +1,562 @@
-import Image from 'next/image'
+"use client";
 
-export default function Home() {
+import Image from "next/image";
+import logo from "../../public/Logo_PT.BES.png";
+import logo_white from "../../public/Logo_PT.BES_white.png";
+import logo_no_text from "../../public/Logo_PT.BES_notext.png";
+import hero from "../../public/hero.png";
+import profile from "../../public/profile.png";
+import profile_line from "../../public/profile_line.png";
+import layanan_1 from "../../public/Layanan_1.png";
+import layanan_2 from "../../public/Layanan_2.png";
+import layanan_3 from "../../public/Layanan_3.png";
+import dokumentasi_1 from "../../public/dokumentasi_1.png";
+import dokumentasi_2 from "../../public/dokumentasi_2.png";
+import dokumentasi_3 from "../../public/dokumentasi_3.png";
+import dokumentasi_4 from "../../public/dokumentasi_4.png";
+import klien_pln from "../../public/klien_pln.png";
+import { useWindowSize } from "react-use";
+
+const Home = () => {
+  const { width, height } = useWindowSize();
+
+  const data_layanan = [
+    {
+      nama: "Pemasangan Fire Alarm System",
+      image: layanan_1,
+    },
+    {
+      nama: "Pemasangan Hydrant Box System",
+      image: layanan_2,
+    },
+    {
+      nama: "Produk APAR Berkualitas",
+      image: layanan_3,
+    },
+  ];
+
+  const data_dokumentasi = [
+    {
+      nama: "dokumentasi 1",
+      image: dokumentasi_1,
+    },
+    {
+      nama: "dokumentasi 2",
+      image: dokumentasi_2,
+    },
+    {
+      nama: "dokumentasi 3",
+      image: dokumentasi_3,
+    },
+    {
+      nama: "dokumentasi 4",
+      image: dokumentasi_4,
+    },
+  ];
+
+  const data_klien = [
+    {
+      nama: "ULP Kediri",
+      logo: klien_pln,
+    },
+    {
+      nama: "ULP Surabaya",
+      logo: klien_pln,
+    },
+    {
+      nama: "ULP Sidoarjo",
+      logo: klien_pln,
+    },
+    {
+      nama: "ULP Malang",
+      logo: klien_pln,
+    },
+    {
+      nama: "ULP Krian",
+      logo: klien_pln,
+    },
+    {
+      nama: "ULP Nganjuk",
+      logo: klien_pln,
+    },
+    {
+      nama: "ULP Jombang",
+      logo: klien_pln,
+    },
+  ];
+
+  console.clear();
+  console.log(width, "halo");
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="bg-white w-full h-full p-0 m-0 overflow-x-hidden">
+      {/* navbar */}
+      {width > 800 ? (
+        // desktop nav
+        <div className="bg-white w-full flex flex-row items-center justify-between shadow-lg py-2 fixed top-0 z-50">
+          <Image src={logo} alt="logo" className="w-60 px-2" />
+          <div className="flex flex-row items-center justify-center gap-x-4 px-3">
+            <p className="text-black text-[16px] font-semibold cursor-pointer">
+              Beranda
+            </p>
+            <p className="text-black text-[16px] font-semibold cursor-pointer">
+              Tentang Kami
+            </p>
+            <p className="text-black text-[16px] font-semibold cursor-pointer">
+              Layanan Kami
+            </p>
+            <p className="text-black text-[16px] font-semibold cursor-pointer">
+              Dokumentasi
+            </p>
+            <p className="text-black text-[16px] font-semibold cursor-pointer">
+              Hubungi Kami
+            </p>
+          </div>
+        </div>
+      ) : (
+        // mobile nav
+        <div className="bg-white w-full flex flex-row items-center justify-between shadow-lg py-2 fixed top-0 z-50">
+          <Image src={logo} alt="logo" className="w-44 px-2" />
+          <svg
+            width="45"
+            height="45"
+            viewBox="0 0 14 14"
+            xmlns="http://www.w3.org/2000/svg"
+            className="px-3"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+            <path
+              fill="none"
+              stroke="#141F48"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13.5 2H6m5 5H3.5m5 5h-8"
             />
-          </a>
+          </svg>
+        </div>
+      )}
+
+      <div className="w-full relative pt-[5vh]">
+        <Image
+          src={hero}
+          alt="hero"
+          className="w-full p-0 m-0 min-h-[400px]"
+          objectFit="cover"
+          style={{ objectFit: "cover" }}
+        />
+        <div className="w-full flex flex-col items-center justify-center gap-y-[40px] absolute top-20 right-0 left-0 z-10 lg:top-40 md:top-24">
+          <p className="text-white text-[20px] font-bold lg:text-[60px] md:text-[40px]">
+            WE ARE PROFESSIONAL
+          </p>
+          <p className="text-white text-[20px] font-bold lg:text-[60px] md:text-[40px]">
+            WE PROTECT YOUR COMPANY
+          </p>
+          <p className="w-[80%] mb-0 text-center text-white text-[10px] font-bold lg:text-[16px] md:text-[12px]">
+            PT Brilian Eka Saetama adalah mitra yang dapat diandalkan dan
+            terpercaya dalam memberikan solusi yang kuat, aman, dan sesuai
+            dengan kebutuhan client. Kami hadir 24 Jam menjaga perusahaan dan
+            bisnis anda dari resiko kebakaran dengan prosedur yang aman dan
+            dapat diandalkan.
+          </p>
+          <button className="bg-[#41D49F] px-4 py-3 mt-0 font-bold rounded-lg cursor-pointer text-[10px] lg:text-[16px] md:text-[12px]">
+            Hubungi Kami
+          </button>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div
+        className={
+          width > 800
+            ? "mt-20 w-full flex flex-row items-start justify-center"
+            : "mt-8 w-full flex flex-col items-start justify-center"
+        }
+      >
+        <div
+          className={
+            width > 800
+              ? "w-[50%] flex flex-col items-center justify-center"
+              : "w-[100%] flex flex-col items-center justify-center"
+          }
+        >
+          <p className="text-[#141F48] text-[20px] font-bold w-[85%] lg:text-[30px] md:text-[25px]">
+            Pelopor Keselamatan : <br />
+            Sejarah PT. Brilian Eka Saetama (BES) <br />
+            <Image
+              src={profile_line}
+              alt="line"
+              className="w-[30%] p-0 m-0 mt-[20px]"
+            />
+          </p>
+          <p className="text-[#141F48] text-[13px] font-medium w-[85%] mt-5 text-justify lg:text-[16px] md:text-[14px]">
+            PT. Brilian Eka Saetama (BES) didirikan pada tahun 2023 dengan visi
+            memberikan solusi proteksi kebakaran yang inovatif dan berkualitas
+            tinggi. Perusahaan ini muncul sebagai respons terhadap kebutuhan
+            mendesak akan sistem proteksi kebakaran yang efektif dan andal di
+            berbagai industri.
+          </p>
+          <p className="text-[#141F48] text-[13px] font-medium w-[85%] mt-5 text-justify lg:text-[16px] md:text-[14px]">
+            PT. Brilian Eka Saetama (BES) telah lama berkomitmen menjadi mitra
+            utama dalam keselamatan dengan menyediakan solusi keamanan dari
+            bahaya kebakaran. Kami berkomitmen untuk memberikan layanan
+            pemasangan sistem perangkat pendukung dengan standar kualitas
+            terbaik, membantu masyarakat dan perusahaan menjaga aset mereka dari
+            risiko kebakaran, serta menciptakan lingkungan yang aman dan
+            terlindungi.
+          </p>
+        </div>
+        <div
+          className={
+            width > 800
+              ? "w-[50%] flex flex-col items-center justify-center relative"
+              : "w-[100%] flex flex-col items-center justify-center relative mt-10"
+          }
+        >
+          <Image src={profile} alt="hero" className="w-[80%] p-0 m-0" />
+          <div className="w-[60%] h-[52px] rounded-lg shadow-lg bg-white absolute -bottom-6 flex flex-row self-center items-center justify-center">
+            <p className="text-[#076269] font-bold text-[16px] lg:text-[22px] md:text-[20px]">
+              7+ Years of Experience
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div
+        className={
+          width > 800
+            ? "mt-16 py-20 w-full flex flex-col items-center justify-center bg-[#E6EFF0]"
+            : "mt-16 py-8 w-full flex flex-col items-center justify-center bg-[#E6EFF0]"
+        }
+      >
+        <p className="text-[#141F48] text-[20px] font-bold lg:text-[30px] md:text-[25px]">
+          Layanan Kami
+        </p>
+        <p className="text-[#141F48] text-[14px] font-bold mt-3 lg:text-[20px] md:text-[16px] max-w-[80%] text-center">
+          Menjaga dan Melindungi Bisnis Anda dari Bahaya Kebakaran
+        </p>
+        <div
+          className={
+            width > 800
+              ? "w-full flex flex-row self-center items-center justify-evenly mt-8 gap-x-5"
+              : "w-full flex flex-col self-center items-center justify-evenly mt-8 gap-y-7"
+          }
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+          {data_layanan.map((item, idx) => {
+            return (
+              <div
+                key={idx}
+                className="cursor-pointer bg-white max-w-[90%] w-[352px] h-[379px] flex flex-col rounded-lg shadow-lg relative items-center overflow-hidden"
+              >
+                <Image
+                  src={item.image}
+                  alt={item.nama}
+                  className="w-full p-3"
+                />
+                <div className="w-full h-fit px-0 py-5 bg-white flex flex-col absolute bottom-0 items-center justify-center">
+                  <p className="text-[#141F48] text-[16px] font-bold">
+                    {item.nama}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div
+        className={
+          width > 800
+            ? "mt-5 pt-10 pb-1 w-full flex flex-col items-center justify-center bg-white"
+            : "mt-5 pt-5 pb-1 w-full flex flex-col items-center justify-center bg-white"
+        }
+      >
+        <p className="text-[#141F48] text-[20px] font-bold lg:text-[30px] md:text-[25px]">
+          Galeri Dokumentasi PT. BES
+        </p>
+        <div
+          className={
+            width > 800
+              ? "w-full flex flex-row self-center items-center justify-evenly mt-8 gap-x-5"
+              : "w-full flex flex-col self-center items-center justify-evenly mt-8 gap-y-5"
+          }
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          {data_dokumentasi.map((item, idx) => {
+            return (
+              <div
+                key={idx}
+                className="cursor-pointer bg-white w-[248px] h-[287px] border flex flex-col rounded-lg shadow-lg relative items-center overflow-hidden"
+              >
+                <Image
+                  src={item.image}
+                  alt={item.nama}
+                  className="w-full p-3"
+                />
+                <div className="w-full h-fit px-0 py-5 bg-white flex flex-col absolute bottom-0 items-center justify-center"></div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="w-full flex flex-row items-center justify-center gap-x-1 mt-16 cursor-pointer">
+          <p className="text-[#076269] text-[20px] font-bold">Selengkapnya</p>
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="#076269"
+              fill-rule="evenodd"
+              d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18zm.707-5.293a1 1 0 0 1-1.415-1.414L12.585 13H9a1 1 0 1 1 0-2h3.586l-1.293-1.293a1 1 0 0 1 1.415-1.414l3 3a1 1 0 0 1 0 1.414l-3 3z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className="mt-16 py-8 w-full flex flex-col items-center justify-center bg-[#E6EFF0]">
+        <p className="text-[#141F48] text-[20px] font-bold lg:text-[30px] md:text-[25px]">
+          Klien PT. BES
+        </p>
+        <div
+          className={
+            width > 800
+              ? "w-full flex flex-row self-center items-center justify-evenly mt-8"
+              : "w-[90%] flex flex-row self-center items-center justify-evenly mt-8 flex-wrap gap-y-4 gap-x-4"
+          }
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
+          {data_klien.map((item, idx) => {
+            return (
+              <div
+                key={idx}
+                className="w-fit h-fit flex flex-col items-center gap-y-3"
+              >
+                <Image
+                  src={item.logo}
+                  alt={item.nama}
+                  className="cursor-pointer w-[100px] grayscale hover:grayscale-0"
+                />
+                <p className="text-[#141F48] text-[16px] font-bold hover:text-[#076269] lg:text-[22px] md:text-[20px]">
+                  {item.nama}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+        <div className="w-full flex flex-row items-center justify-center gap-x-1 mt-16 cursor-pointer">
+          <p className="text-[#141F48] text-[20px] font-bold">Selengkapnya</p>
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="#141F48"
+              fill-rule="evenodd"
+              d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18zm.707-5.293a1 1 0 0 1-1.415-1.414L12.585 13H9a1 1 0 1 1 0-2h3.586l-1.293-1.293a1 1 0 0 1 1.415-1.414l3 3a1 1 0 0 1 0 1.414l-3 3z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+      <div className="mt-10 mb-16 pt-10 pb-1 w-full flex flex-col items-center justify-center bg-white">
+        <div className="w-[85%] h-fit py-10 px-14 flex flex-col items-start bg-white border-black border rounded-lg shadow-lg relative">
+          <div className="w-[16px] h-[101%] bg-[#076269] absolute top-0 -left-2 mb-1"></div>
+          <div className="w-[16px] h-[101%] bg-[#141F48] absolute top-0 left-2 mb-1"></div>
+          <p className="text-[#141F48] text-[20px] font-bold lg:text-[30px] md:text-[25px]">
+            Konsultasikan Kebutuhan Bisnis Anda Disini!
           </p>
-        </a>
+          <p className="text-[#141F48] text-[16px] font-medium">
+            Dapatkan solusi dan penanganan terbaik keamanan dari resiko
+            kebakaran bersama Tim PT. BES
+          </p>
+          <button
+            className={
+              width > 800
+                ? "w-fit h-fit bg-[#41D49F] px-3 py-1 mt-5 flex flex-row items-center justify-center text-[20px] font-bold rounded-lg gap-x-2 cursor-pointer absolute right-10"
+                : "w-fit h-fit bg-[#41D49F] px-3 py-1 mt-5 flex flex-row items-center justify-center text-[15px] font-bold rounded-lg gap-x-2 cursor-pointer"
+            }
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={width > 800 ? "43" : "25"}
+              height={width > 800 ? "43" : "25"}
+              viewBox="0 0 43 43"
+              fill="none"
+            >
+              <path
+                d="M35.6094 8.0625H7.39062C5.53529 8.0625 4.03125 9.56654 4.03125 11.4219V31.5781C4.03125 33.4335 5.53529 34.9375 7.39062 34.9375H35.6094C37.4647 34.9375 38.9688 33.4335 38.9688 31.5781V11.4219C38.9688 9.56654 37.4647 8.0625 35.6094 8.0625Z"
+                stroke="white"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M9.40625 13.4375L21.5 22.8438L33.5938 13.4375"
+                stroke="white"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>{" "}
+            Email Kami
+          </button>
+        </div>
+      </div>
+
+      <div className="mt-16 py-8 w-full flex flex-col items-center justify-center bg-[#141F48]">
+        <div
+          className={
+            width > 800
+              ? "w-full flex flex-row items-start justify-evenly"
+              : "w-full flex flex-col items-center justify-center"
+          }
+        >
+          <div className="w-full flex flex-col items-center justify-start">
+            <Image
+              src={logo_white}
+              alt="logo_bes"
+              className="w-[350px] p-0 m-0 -ml-5"
+            />
+            <p
+              className={
+                width > 800
+                  ? "text-white text-[16px] font-medium w-[350px] mt-10 text-justify"
+                  : "text-white text-[16px] font-medium w-[350px] mt-5 mb-5 text-justify"
+              }
+            >
+              Perusahaan penyedia layanan keamanan kebakaran meliputi penjualan
+              dan pemasangan alat berserta sistem pencegah dan pemadam
+              kebakaran.
+            </p>
+          </div>
+          <div
+            className={
+              width > 800
+                ? "w-full flex flex-col items-center justify-start"
+                : "w-[90%] flex flex-col items-start justify-start"
+            }
+          >
+            <p className="w-[80%] text-white text-[20px] font-bold pl-0 pb-3 pr-3 border-b-2 border-white mb-5 lg:text-[30px] md:text-[25px]">
+              Layanan Kami
+            </p>
+            {data_layanan.map((item, idx) => {
+              return (
+                <p
+                  key={idx}
+                  className={
+                    width > 800
+                      ? "cursor-pointer text-white text-[16px] font-bold gap-x-2 flex flex-row self-start ml-10 mb-3 items-center justify-center lg:text-[20px] md:text-[18px]"
+                      : "cursor-pointer text-white text-[16px] font-bold gap-x-2 flex flex-row self-start ml-3 mb-3 items-center justify-center lg:text-[20px] md:text-[18px]"
+                  }
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={width > 800 ? "22" : "18"}
+                    height={width > 800 ? "22" : "18"}
+                    viewBox="0 0 22 22"
+                    fill="none"
+                  >
+                    <path
+                      d="M7.90625 4.8125L14.0938 11L7.90625 17.1875"
+                      stroke="white"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>{" "}
+                  {item.nama}
+                </p>
+              );
+            })}
+          </div>
+          <div
+            className={
+              width > 800
+                ? "w-full flex flex-col items-center justify-start"
+                : "w-[90%] flex flex-col items-start justify-start mt-3"
+            }
+          >
+            <p className="w-[80%] text-white text-[20px] font-bold pl-0 pb-3 pr-3 border-b-2 border-white mb-5 lg:text-[30px] md:text-[25px]">
+              Kontak Kami
+            </p>
+            <p
+              className={
+                width > 800
+                  ? "cursor-pointer text-white text-[16px] font-bold gap-x-2 flex flex-row self-start ml-10 mb-3 items-center justify-center lg:text-[20px] md:text-[18px]"
+                  : "cursor-pointer text-white text-[16px] font-bold gap-x-2 flex flex-row self-start ml-3 mb-3 items-center justify-center lg:text-[20px] md:text-[18px]"
+              }
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={width > 800 ? "23" : "19"}
+                height={width > 800 ? "23" : "19"}
+                viewBox="0 0 23 23"
+                fill="none"
+              >
+                <path
+                  d="M19.0469 4.3125H3.95312C2.96074 4.3125 2.15625 5.11699 2.15625 6.10938V16.8906C2.15625 17.883 2.96074 18.6875 3.95312 18.6875H19.0469C20.0393 18.6875 20.8438 17.883 20.8438 16.8906V6.10938C20.8438 5.11699 20.0393 4.3125 19.0469 4.3125Z"
+                  stroke="white"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5.03125 7.1875L11.5 12.2188L17.9688 7.1875"
+                  stroke="white"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>{" "}
+              pt-bes@mail.com
+            </p>
+            <p
+              className={
+                width > 800
+                  ? "cursor-pointer text-white text-[16px] font-bold gap-x-2 flex flex-row self-start ml-10 mb-3 items-center justify-center lg:text-[20px] md:text-[18px]"
+                  : "cursor-pointer text-white text-[16px] font-bold gap-x-2 flex flex-row self-start ml-3 mb-3 items-center justify-center lg:text-[20px] md:text-[18px]"
+              }
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={width > 800 ? "24" : "20"}
+                height={width > 800 ? "24" : "20"}
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M12 2.25C8.27344 2.25 5.25 5.12766 5.25 8.67188C5.25 12.75 9.75 19.2127 11.4023 21.4448C11.4709 21.5391 11.5608 21.6157 11.6647 21.6686C11.7686 21.7215 11.8835 21.749 12 21.749C12.1165 21.749 12.2314 21.7215 12.3353 21.6686C12.4392 21.6157 12.5291 21.5391 12.5977 21.4448C14.25 19.2136 18.75 12.7533 18.75 8.67188C18.75 5.12766 15.7266 2.25 12 2.25Z"
+                  stroke="white"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 11.25C13.2426 11.25 14.25 10.2426 14.25 9C14.25 7.75736 13.2426 6.75 12 6.75C10.7574 6.75 9.75 7.75736 9.75 9C9.75 10.2426 10.7574 11.25 12 11.25Z"
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>{" "}
+              Jl. Pabean Asri Permai No. 212,
+              <br />
+              Waru Sidoarjo Jawa Timur
+            </p>
+          </div>
+        </div>
+        <p
+          className={
+            width > 800
+              ? "text-white text-[16px] font-medium w-fit mt-20"
+              : "text-white text-[13px] font-medium w-fit mt-7"
+          }
+        >
+          Copyright © 2023 PT. Brilian Eka Saetama (BES)
+        </p>
       </div>
     </main>
-  )
-}
+  );
+};
+
+export default Home;
