@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import logo from "../../public/Logo_PT.BES.png";
 import logo_white from "../../public/Logo_PT.BES_white.png";
@@ -23,11 +22,11 @@ import { TypeAnimation } from "react-type-animation";
 import "aos/dist/aos.css";
 
 const Home = () => {
-  AOS.init();
   const { width, height } = useWindowSize();
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
+    AOS.init();
     if (typeof window !== "undefined") {
       const handleScroll = () => {
         setScrollY(window.scrollY);
@@ -106,7 +105,7 @@ const Home = () => {
   ];
 
   return (
-    <main className="bg-white w-full h-full p-0 m-0 overflow-x-hidden relative">
+    <div className="bg-white w-full h-full p-0 m-0 overflow-x-hidden relative">
       {/* navbar */}
       {width > 800 ? (
         // desktop nav
@@ -707,7 +706,7 @@ const Home = () => {
           </svg>
         </div>
       )}
-    </main>
+    </div>
   );
 };
 
