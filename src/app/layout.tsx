@@ -17,7 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" style={{ width: "100%" }}>
+    <html
+      lang="en"
+      style={{ width: "100%", scrollBehavior: "smooth" }}
+      className="scroll-smooth"
+    >
       <body className={nunito.className}>{children}</body>
     </html>
   );
