@@ -28,13 +28,11 @@ const Home = () => {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    handleScroll();
-
     if (typeof window !== "undefined") {
+      const handleScroll = () => {
+        setScrollY(window.scrollY);
+      };
+      handleScroll();
       window.addEventListener("scroll", handleScroll);
       return () => {
         window.removeEventListener("scroll", handleScroll);
